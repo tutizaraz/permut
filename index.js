@@ -40,7 +40,7 @@ if (!filesToProcess.length) {
 
 const main = async () => {
   try {
-    log(`${colors.rainbow('\nAhoy!')} ES6ifyin' your CommonJS for ya...`);
+    log(`${colors.rainbow('\nHey!')} Transforming your CommonJS to ES6...`);
     const filesToLoad = await processFiles(filesToProcess);
 
     log(`\nFound ${colors.cyan(filesToLoad.length.toString())} files.`);
