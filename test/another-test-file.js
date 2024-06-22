@@ -1,9 +1,3 @@
-const fs = require('fs');
-const path = require('path');
-const util = require('util');
-
-const readFileAsync = util.promisify(fs.readFile);
-
 function logFileContent(filePath) {
   readFileAsync(filePath, 'utf8')
     .then((content) => {
@@ -14,7 +8,7 @@ function logFileContent(filePath) {
     });
 }
 
-module.exports = {
+export default {
   logFileContent,
   constantValue: 42,
 };

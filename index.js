@@ -2,10 +2,10 @@
 
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
-const { processFiles } = require('./fileProcessor');
-const { codeSwitching } = require('./codeSwitching');
-const { log, logError } = require('./logger');
-const colors = require('colors/safe'); // Ensure colors is required
+const { processFiles } = require('./utils/fileProcessor');
+const { codeSwitching } = require('./utils/codeSwitching');
+const { log, logError } = require('./utils/logger');
+const colors = require('colors/safe');
 
 const argv = yargs(hideBin(process.argv))
   .options({
@@ -32,11 +32,13 @@ const argv = yargs(hideBin(process.argv))
 const filesToProcess = argv._;
 
 if (!filesToProcess.length) {
-  yargs.showHelp();
-  process.exit(0);
+  (async () => {
+    await yargs.showHelp();
+    process.exit(0);
+  })();
 }
 
-(async () => {
+const main = async () => {
   try {
     log(`${colors.rainbow('\nAhoy!')} ES6ifyin' your CommonJS for ya...`);
     const filesToLoad = await processFiles(filesToProcess);
@@ -50,7 +52,10 @@ if (!filesToProcess.length) {
     }
     log();
   } catch (error) {
+    logError(`Error during processing: ${error.message}`);
     logError(error.stack);
     process.exit(1);
   }
-})();
+};
+
+main();

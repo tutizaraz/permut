@@ -8,4 +8,8 @@ function logError(message) {
   console.error(colors.red(message));
 }
 
-module.exports = { log, logError, colors };
+module.exports = {
+  log,
+  logError,
+  colors,
+};

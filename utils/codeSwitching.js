@@ -55,4 +55,6 @@ async function codeSwitching(files, argv) {
   await runCodeshift('5to6-codemod/transforms/exports.js', files, argv.p, argv.v);
 }
 
-module.exports = { codeSwitching };
+module.exports = {
+  codeSwitching,
+};
