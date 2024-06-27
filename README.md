@@ -1,5 +1,5 @@
 run 
 
 ```bash
-../permut/index.js --verbose test/test-file.js test/another-test-file.js
+npx ts-node src/index.ts --parser ts --verbose test/test-file.js test/another-test-file.js
 ```
