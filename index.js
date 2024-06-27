@@ -40,13 +40,13 @@ if (!filesToProcess.length) {
 
 const main = async () => {
   try {
-    log(`${colors.rainbow('\nHey!')} Transforming your CommonJS to ES6...`);
+    log(`${colors.rainbow('\nHey!')} Transforming your CommonJS to ESM...`);
     const filesToLoad = await processFiles(filesToProcess);
 
     log(`\nFound ${colors.cyan(filesToLoad.length.toString())} files.`);
     await codeSwitching(filesToLoad, argv);
 
-    log(colors.rainbow('\nES6ification complete!'));
+    log(colors.rainbow('\nESMification complete!'));
     if (!argv.v) {
       log(`Re-run with ${colors.cyan('--verbose')} to see full output.`);
     }
