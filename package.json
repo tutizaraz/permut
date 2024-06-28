@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "tsup dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "@types/colors": "^1.2.1",
     "@types/node": "^20.14.9",
     "@types/yargs": "^17.0.32",
+    "tsup": "^8.1.0",
     "typescript": "^5.5.2"
   }
 }
